@@ -1,0 +1,25 @@
+# Documentation: https://roots.io/trellis/docs/local-development-setup/
+# `wordpress_sites` options: https://roots.io/trellis/docs/wordpress-sites
+# Define accompanying passwords/secrets in group_vars/development/vault.yml
+
+wordpress_sites:
+  example.com:
+    site_hosts:
+      - 142dev.dev
+    local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
+    admin_email: admin@example.dev
+    multisite:
+      enabled: false
+    ssl:
+      enabled: false
+      provider: self-signed
+    cache:
+      enabled: false
+    env:
+      disable_wp_cron: true
+      wp_home: http://142dev.dev
+      wp_siteurl: http://142dev.dev/wp
+      wp_env: development
+      db_name: example_dev
+      db_user: example_dbuser
+      # db_password: (defined in group_vars/development/vault.yml)
