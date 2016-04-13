@@ -5,9 +5,9 @@
 wordpress_sites:
   example.com:
     site_hosts:
-      - example.com
+      - 142dev.info
     local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
-    repo: git@github.com:example/example.com.git # replace with your Git repo URL
+    repo: git@github.com:davehealy/example.com.git # replace with your Git repo URL
     repo_subtree_path: site # relative path to your Bedrock/WP directory in your repo
     branch: master
     multisite:
@@ -17,3 +17,10 @@ wordpress_sites:
       provider: letsencrypt
     cache:
       enabled: false
+    env:
+      disable_wp_cron: true
+      wp_home: http://142dev.info
+      wp_siteurl: http://142dev.info/wp
+      wp_env: production
+      db_name: roots_example_project_prod
+      db_user: roots_example_project_prod
